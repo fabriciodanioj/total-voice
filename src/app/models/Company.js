@@ -11,6 +11,11 @@ const CompanySchema = new Schema(
       required: true,
       unique: true,
     },
+    companyToken: {
+      type: String,
+      required: true,
+      unique: true,
+    },
   },
   {
     timestamps: true,

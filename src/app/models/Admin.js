@@ -21,11 +21,6 @@ const UserSchema = new Schema(
       ref: 'Company',
       required: true,
     },
-    truckId: {
-      type: Schema.Types.ObjectId,
-      ref: 'Truck',
-      required: true,
-    },
   },
   {
     timestamps: true,
