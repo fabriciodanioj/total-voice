@@ -3,17 +3,16 @@ import 'dotenv/config';
 import * as Youch from 'youch';
 import express from 'express';
 import 'express-async-errors';
+import { connect } from 'mongoose';
+import cors from 'cors';
 
 import routes from './routes';
-
-// Uncomment this line to enable database access
-// --------
-// import './database';
 
 class App {
   constructor() {
     this.server = express();
 
+    this.database();
     this.middlewares();
     this.routes();
     this.exceptionHandler();
@@ -21,6 +20,19 @@ class App {
 
   middlewares() {
     this.server.use(express.json());
+    this.server.use(cors());
+  }
+
+  database() {
+    connect(
+      process.env.MONGO_URI,
+      {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useFindAndModify: false,
+        useCreateIndex: true,
+      }
+    );
   }
 
   routes() {
