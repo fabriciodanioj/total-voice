@@ -41,7 +41,7 @@ routes.post('/create/truck', CreateTruckController.store);
 routes.get('/list/admins', ListAdminsController.show);
 routes.get('/list/companies', ListCompaniesController.show);
 routes.get('/list/clients', ListClientsController.show);
-routes.get('/list/trucks', ListTrucksController.show);
+routes.get('/list/trucks/:companyId', ListTrucksController.show);
 
 // SHOW
 routes.get('/show/order', ShowOrderController.show);

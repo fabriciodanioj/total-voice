@@ -2,7 +2,7 @@ import Truck from '../../models/Truck';
 
 class ListTrucksController {
   async show(req, res) {
-    const { companyId } = req.body;
+    const { companyId } = req.params;
 
     await Truck.find({ owner: companyId }, (err, trucks) => {
       if (err) {
