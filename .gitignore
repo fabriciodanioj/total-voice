@@ -4,4 +4,7 @@ node_modules
 tmp/*
 !tmp/.gitkeep
 
+env
+
+dist
 
