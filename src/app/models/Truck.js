@@ -5,6 +5,12 @@ const TruckSchema = new Schema(
     licensePlate: {
       type: String,
       required: true,
+      unique: true,
+    },
+    owner: {
+      type: Schema.Types.ObjectId,
+      ref: 'Company',
+      required: true,
     },
   },
   {
