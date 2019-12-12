@@ -13,13 +13,13 @@ class RandomArrayLocations {
       const randomLat = JSON.parse(
         `${`${latitude}`.split('.')[0]}.${parseInt(
           Math.abs(`${latitude}`.split('.')[1]) +
-            (Math.abs((Math.random() * (max - min) + min) / 2))
+            Math.abs((Math.random() * (max - min) + min) / 2)
         )}`
       );
       const randomLong = JSON.parse(
         `${`${longitude}`.split('.')[0]}.${parseInt(
           Math.abs(`${longitude}`.split('.')[1]) +
-          (Math.abs((Math.random() * (max - min) + min) / 2))
+            Math.abs((Math.random() * (max - min) + min) / 2)
         )}`
       );
       const label = crypto
