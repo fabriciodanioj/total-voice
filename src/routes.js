@@ -14,6 +14,8 @@ import ListClientsController from './app/controllers/List/ListClientsController'
 
 import AdminSessionController from './app/controllers/Session/AdminSessionController';
 
+import RandomArrayLocations from './app/controllers/Generate/RandomArrayLocations';
+
 const routes = new Router();
 
 // SMS/CALL
@@ -34,5 +36,8 @@ routes.get('/list/clients', ListClientsController.show);
 
 // SESSION
 routes.post('/session/admin', AdminSessionController.index);
+
+// GENERATE RANDOM
+routes.post('/generate/locations', RandomArrayLocations.index);
 
 export default routes;
