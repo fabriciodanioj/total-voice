@@ -1,14 +1,14 @@
-import bcrypt from 'bcrypt';
+"use strict"; function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }Object.defineProperty(exports, "__esModule", {value: true});var _bcrypt = require('bcrypt'); var _bcrypt2 = _interopRequireDefault(_bcrypt);
 
-import Admin from '../../models/Admin';
-import Company from '../../models/Company';
+var _Admin = require('../../models/Admin'); var _Admin2 = _interopRequireDefault(_Admin);
+var _Company = require('../../models/Company'); var _Company2 = _interopRequireDefault(_Company);
 
 class CreateAdminController {
   async store(req, res) {
     try {
       const { name, email, password, companyId, token } = await req.body;
 
-      const checkEmail = await Admin.findOne({ email });
+      const checkEmail = await _Admin2.default.findOne({ email });
 
       if (email.length < 5) {
         res.send({ error: 'Please, insert a e-mail.' });
@@ -16,14 +16,14 @@ class CreateAdminController {
 
       if (!checkEmail) {
         if (password.length >= 8) {
-          const salt = bcrypt.genSaltSync(10);
+          const salt = _bcrypt2.default.genSaltSync(10);
 
-          const passwordToSave = bcrypt.hashSync(password, salt);
+          const passwordToSave = _bcrypt2.default.hashSync(password, salt);
 
-          const { companyToken } = await Company.findById(companyId);
+          const { companyToken } = await _Company2.default.findById(companyId);
 
           if (companyToken === token) {
-            const user = await Admin.create({
+            const user = await _Admin2.default.create({
               name,
               email,
               password: passwordToSave,
@@ -44,4 +44,4 @@ class CreateAdminController {
   }
 }
 
-export default new CreateAdminController();
+exports. default = new CreateAdminController();

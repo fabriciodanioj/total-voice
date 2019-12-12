@@ -1,11 +1,15 @@
-/* eslint-disable no-console */
 import TotalVoice from 'totalvoice-node';
 
 const api = new TotalVoice(process.env.AccessToken);
 
-class SendTTSController {
+class SendConfirmationURAController {
   async create(req, res) {
-    const { receiver, msg } = req.body;
+    const { receiver, clientName } = req.body;
+
+    const msg = `Olá ${clientName}, nosso time de distribuição já saiu para realizar sua entrega.
+    Tecle 1 para confirmar o recebimento do pedido ou tecle dois para rejeitar
+    `;
+
     await api.composto
       .enviar(
         receiver,
@@ -15,7 +19,7 @@ class SendTTSController {
             acao_dados: {
               mensagem: msg,
               velocidade: '-2',
-              tipo_voz: 'br-Ricardo',
+              tipo_voz: 'br-Vitoria',
             },
           },
         ],
@@ -32,4 +36,4 @@ class SendTTSController {
   }
 }
 
-export default new SendTTSController();
+export default new SendConfirmationURAController();

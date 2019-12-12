@@ -1,6 +1,6 @@
-import { Schema, model } from 'mongoose';
+"use strict";Object.defineProperty(exports, "__esModule", {value: true});var _mongoose = require('mongoose');
 
-const ClientSchema = new Schema(
+const ClientSchema = new (0, _mongoose.Schema)(
   {
     companyName: {
       type: String,
@@ -12,12 +12,12 @@ const ClientSchema = new Schema(
       unique: true,
     },
     clientAddress: {
-      type: Schema.Types.ObjectId,
+      type: _mongoose.Schema.Types.ObjectId,
       ref: 'Address',
       required: true,
     },
     dealer: {
-      type: Schema.Types.ObjectId,
+      type: _mongoose.Schema.Types.ObjectId,
       ref: 'Company',
       required: true,
     },
@@ -27,4 +27,4 @@ const ClientSchema = new Schema(
   }
 );
 
-export default model('Client', ClientSchema);
+exports. default = _mongoose.model.call(void 0, 'Client', ClientSchema);
