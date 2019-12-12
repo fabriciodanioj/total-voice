@@ -1,6 +1,6 @@
 import 'dotenv/config';
 
-import * as Youch from 'youch';
+import Youch from 'youch';
 import express from 'express';
 import 'express-async-errors';
 import { connect } from 'mongoose';
@@ -41,6 +41,7 @@ class App {
 
   exceptionHandler() {
     this.server.use(async (err, req, res, next) => {
+      console.log(err);
       if (process.env.NODE_ENV === 'development') {
         const errors = await new Youch(err, req).toJSON();
 

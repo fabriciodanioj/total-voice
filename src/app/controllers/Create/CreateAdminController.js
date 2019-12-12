@@ -1,5 +1,3 @@
-/* eslint-disable no-shadow */
-/* eslint-disable no-console */
 import bcrypt from 'bcrypt';
 
 import Admin from '../../models/Admin';
@@ -22,7 +20,7 @@ class CreateAdminController {
 
           const passwordToSave = bcrypt.hashSync(password, salt);
 
-          const { companyToken } = Company.findById(companyId);
+          const { companyToken } = await Company.findById(companyId);
 
           if (companyToken === token) {
             const user = await Admin.create({
