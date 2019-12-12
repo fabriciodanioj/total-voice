@@ -6,11 +6,6 @@ const ClientSchema = new Schema(
       type: String,
       required: true,
     },
-    companyDocument: {
-      type: String,
-      required: true,
-      unique: true,
-    },
     phone: {
       type: String,
       required: true,
@@ -20,13 +15,10 @@ const ClientSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: 'Address',
       required: true,
-      unique: true,
     },
     dealer: {
-      type: Schema.Types.ObjectId,
-      ref: 'Company',
+      type: String,
       required: true,
-      unique: true,
     },
   },
   {
