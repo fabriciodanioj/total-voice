@@ -40,12 +40,12 @@ routes.post('/create/truck', CreateTruckController.store);
 // LIST
 routes.get('/list/admins', ListAdminsController.show);
 routes.get('/list/companies', ListCompaniesController.show);
-routes.get('/list/clients', ListClientsController.show);
+routes.get('/list/clients/:dealer', ListClientsController.show);
 routes.get('/list/trucks/:companyId', ListTrucksController.show);
 
 // SHOW
-routes.get('/show/order', ShowOrderController.show);
-routes.get('/show/client', ShowClientController.show);
+routes.get('/show/order/:orderId', ShowOrderController.show);
+routes.get('/show/client/:clientId', ShowClientController.show);
 
 // SESSION
 routes.post('/session/admin', AdminSessionController.index);

@@ -3,7 +3,7 @@ import Address from '../../models/Address';
 
 class ShowClientController {
   async show(req, res) {
-    const { clientId } = req.body;
+    const { clientId } = req.params;
 
     const client = await Client.findById({ _id: clientId });
 

@@ -2,7 +2,7 @@ import Order from '../../models/Order';
 
 class ShowOrderController {
   async show(req, res) {
-    const { orderId } = req.body;
+    const { orderId } = req.params;
 
     await Order.findById({ _id: orderId }, (err, order) => {
       if (err) {

@@ -2,7 +2,7 @@ import Client from '../../models/Client';
 
 class ListClientsController {
   async show(req, res) {
-    const { dealer } = req.body;
+    const { dealer } = req.params;
 
     await Client.find({ dealer }, (err, client) => {
       if (err) {
